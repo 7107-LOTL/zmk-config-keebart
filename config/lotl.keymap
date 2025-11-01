@@ -4,20 +4,20 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/rgb.h>
-
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/rgb.h>
 
+CONFIG_ZMK_POINTING {
+    =y
 
-CONFIG_ZMK_POINTING=y
+/
 
-/ {
     chosen { zmk,physical-layout = &default_layout; };
 };
 
@@ -28,10 +28,10 @@ CONFIG_ZMK_POINTING=y
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp LCRTL   &kp Q  &kp W  &kp E     &kp R  &kp T      &none  &none  &kp Y    &kp U  &kp I      &kp O    &kp P    &kp RCRTL
-&kp TAB     &kp A  &kp S  &kp D     &kp F  &kp G      &none  &none  &kp H    &kp J  &kp K      &kp L    &kp SEMI &kp TAB   
-&kp LSHFT   &kp Z  &kp X  &kp C     &kp V  &kp B                    &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH &kp RSHFT   
-                     &kp LGUI  &mo 1  &kp SPACE                &kp RET  &mo 2  &kp RALT
+&kp LCRTL  &kp Q  &kp W  &kp E     &kp R  &kp T      &none  &none  &kp Y    &kp U  &kp I      &kp O    &kp P     &kp RCRTL
+&kp TAB    &kp A  &kp S  &kp D     &kp F  &kp G      &none  &none  &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp TAB
+&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B                    &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                         &kp LGUI  &mo 1  &kp SPACE                &kp RET  &mo 2  &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -40,10 +40,10 @@ CONFIG_ZMK_POINTING=y
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp TAB    &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &kp LCTRL  &kp RCTRL  &kp N6    &kp N7    &kp N8     &kp N9     &kp N0  &kp BSPC
-&kp LCTRL  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LALT   &kp RALT   &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &trans  &trans
-&kp LSHFT  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                        &trans    &trans    &trans     &trans     &trans  &trans
-                                          &kp LGUI      &trans        &kp SPACE                             &kp LGUI  &trans    &kp SPACE
+&kp TAB    &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &kp LCTRL  &kp RCTRL  &kp N6          &kp N7          &kp N8        &kp N9           &kp N0  &kp BSPC
+&kp LCTRL  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LALT   &kp RALT   &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &trans  &trans
+&kp LSHFT  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans  &trans
+                                          &kp LGUI      &trans        &kp SPACE                             &mkp LCLK       &mkp RCLK       &kp SPACE
             >;
         };
 
